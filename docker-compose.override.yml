@@ -1,0 +1,33 @@
+x-volumes: &volumes
+  - ./source/hybridmethod:/source/hybridmethod
+  - ./source/hybridmethod:/usr/local/lib/python/site-packages/hybridmethod
+  - ./tests:/tests
+  - ./README.md:/README.md
+
+services:
+
+  black:
+    environment:
+        PYTHONDONTWRITEBYTECODE: "YES"
+    env_file:
+        .env
+
+  tests:
+    environment:
+        PYTHONDONTWRITEBYTECODE: "YES"
+    env_file:
+        .env
+
+  cli:
+    container_name: hybridmethod-cli
+    build:
+      dockerfile: ./Dockerfile
+      context: ./
+    env_file: .env
+    environment:
+      - PYTHONDONTWRITEBYTECODE=YES
+      - SERVICE=cli
+    image: hybridmethod-cli
+    entrypoint: /bin/bash
+    volumes:
+      *volumes

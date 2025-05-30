@@ -1,0 +1,29 @@
+x-volumes: &volumes
+  - ./source/hybridmethod:/source/hybridmethod
+  - ./source/hybridmethod:/usr/local/lib/python/site-packages/hybridmethod
+  - ./tests:/tests
+  - ./README.md:/README.md
+
+services:
+
+  black:
+    container_name: hybridmethod-black
+    build:
+      dockerfile: ./Dockerfile
+      context: ./
+    image: hybridmethod-black
+    environment:
+      - SERVICE=black
+    volumes:
+      *volumes
+
+  tests:
+    container_name: hybridmethod-tests
+    build:
+      dockerfile: ./Dockerfile
+      context: ./
+    image: hybridmethod-tests
+    environment:
+      - SERVICE=tests
+    volumes:
+      *volumes
