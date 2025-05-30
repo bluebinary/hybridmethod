@@ -10,7 +10,7 @@ from hybridmethod import hybridmethod
 
 
 class MyClass(object):
-    """This sample class provides hybrid methods that allow items to be added to and 
+    """This sample class provides hybrid methods that allow items to be added to and
     removed from the class-level list and the item-level list without needing to define
     separate methods to manage either list. The class also offers some helper methods to
     provide access to the class-level list, instance-level lists and a combined list."""
