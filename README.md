@@ -38,7 +38,7 @@ name of the class for `<class>`.
 
 ### Requirements
 
-The HybridMethod library has been tested with Python 3.9, 3.10, 3.11, 3.12 and 3.13. The library is not compatible with Python 3.8 or earlier.
+The HybridMethod library has been tested with Python 3.10, 3.11, 3.12 and 3.13. The library is not compatible with Python 3.8 or earlier.
 
 ### Installation
 
