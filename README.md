@@ -1,7 +1,15 @@
 # HybridMethod: A Python Hybrid Method Decorator Class
 
 The HybridMethod library provides a Python method decorator that allows methods defined
-in a class to be used as both a class method and an instance method..
+in a class to be used as both a class method and an instance method.
+
+⚠️ **Please note: The HybridMethod library has been deprecated and superseded by the Classicist library due to a change in scope of the project. Please update any dependency definitions and import statements to reference the new `classicist` library instead from which the `hybridmethod` decorator will continue to be available.**
+
+The latest version of the HybridMethod library acts as a bridge to the new Classicist library, which will be installed if the HybridMethod library is installed. The bridge
+makes the `hybridmethod` decorator available for import, although a `DeprecationWarning`
+will be issued.
+
+Please see the new repository for all future updates: [https://github.com/bluebinary/classicist](Classicist).
 
 The `@hybridmethod` decorator provided by the library wraps methods defined in classes
 using the usual `@decorator` syntax. Methods defined in classes that are decorated with
@@ -30,7 +38,7 @@ name of the class for `<class>`.
 
 ### Requirements
 
-The HybridMethod library has been tested with Python 3.10, 3.11, 3.12 and 3.13. The library is not compatible with Python 3.9 or earlier.
+The HybridMethod library has been tested with Python 3.10, 3.11, 3.12 and 3.13. The library is not compatible with Python 3.8 or earlier.
 
 ### Installation
 

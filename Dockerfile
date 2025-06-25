@@ -34,9 +34,9 @@ RUN pip install --requirement /app/requirements.txt
 COPY requirements.development.txt /app/requirements.development.txt
 RUN pip install --requirement /app/requirements.development.txt
 
-# Copy and install the dependencies from requirements.deployment.txt
-# COPY requirements.deployment.txt /app/requirements.deployment.txt
-# RUN pip install --requirement /app/requirements.deployment.txt
+# Copy and install the dependencies from requirements.distribution.txt
+# COPY requirements.deployment.txt /app/requirements.distribution.txt
+# RUN pip install --requirement /app/requirements.distribution.txt
 
 # Copy the library source into the container's source folder for black lint checking
 COPY ./source/hybridmethod /source/hybridmethod
