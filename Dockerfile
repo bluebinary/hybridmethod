@@ -39,7 +39,7 @@ RUN pip install --requirement /app/requirements.development.txt
 # RUN pip install --requirement /app/requirements.distribution.txt
 
 # Copy the library source into the container's source folder for black lint checking
-COPY ./source/hybridmethod /source/hybridmethod
+COPY ./source/classicist /source/classicist
 
 # Copy the README into the container's root folder for PyTest README code block testing
 COPY ./README.md /README.md
@@ -48,7 +48,7 @@ COPY ./README.md /README.md
 COPY ./tests /tests
 
 # Copy the library source into the container's site-packages folder for running unit tests
-COPY ./source/hybridmethod /usr/local/lib/python/site-packages/hybridmethod
+COPY ./source/classicist /usr/local/lib/python/site-packages/classicist
 
 # Create a custom entry point that allows us to override the command as needed
 COPY <<"COPYEOF" /entrypoint.sh

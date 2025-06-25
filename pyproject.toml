@@ -1,8 +1,8 @@
 [project]
-name = "hybridmethod"
-description = "A hybrid method decorator for Python allowing methods to be called on classes and their instances."
+name = "classicist"
+description = "Classy class decorators for Python."
 readme = {file = "README.md", content-type = "text/markdown"}
-keywords = ["hybrid method", "class method", "instance method", "decorator"]
+keywords = ["hybrid method", "class method", "instance method", "decorator", "class property", "class properties"]
 authors = [{name = "Daniel Sissman"}]
 license = {file = "LICENSE.md", content-type = "text/markdown"}
 classifiers = [
@@ -20,18 +20,18 @@ dynamic = [
 ]
 
 [project.urls]
-documentation = "https://github.com/bluebinary/hybridmethod/blob/main/README.md"
-changelog = "https://github.com/bluebinary/hybridmethod/blob/main/CHANGELOG.md"
-repository = "https://github.com/bluebinary/hybridmethod"
-issues = "https://github.com/bluebinary/hybridmethod/issues"
-homepage = "https://github.com/bluebinary/hybridmethod"
+documentation = "https://github.com/bluebinary/classicist/blob/main/README.md"
+changelog = "https://github.com/bluebinary/classicist/blob/main/CHANGELOG.md"
+repository = "https://github.com/bluebinary/classicist"
+issues = "https://github.com/bluebinary/classicist/issues"
+homepage = "https://github.com/bluebinary/classicist"
 
 [build-system]
 requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.dynamic]
-version = {file = "source/hybridmethod/version.txt"}
+version = {file = "source/classicist/version.txt"}
 dependencies = {file = "requirements.txt"}
 
 [tool.setuptools.dynamic.optional-dependencies]

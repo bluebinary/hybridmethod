@@ -1,28 +1,28 @@
 x-volumes: &volumes
-  - ./source/hybridmethod:/source/hybridmethod
-  - ./source/hybridmethod:/usr/local/lib/python/site-packages/hybridmethod
+  - ./source/classicist:/source/classicist
+  - ./source/classicist:/usr/local/lib/python/site-packages/classicist
   - ./tests:/tests
   - ./README.md:/README.md
 
 services:
 
   black:
-    container_name: hybridmethod-black
+    container_name: classicist-black
     build:
       dockerfile: ./Dockerfile
       context: ./
-    image: hybridmethod-black
+    image: classicist-black
     environment:
       - SERVICE=black
     volumes:
       *volumes
 
   tests:
-    container_name: hybridmethod-tests
+    container_name: classicist-tests
     build:
       dockerfile: ./Dockerfile
       context: ./
-    image: hybridmethod-tests
+    image: classicist-tests
     environment:
       - SERVICE=tests
     volumes:

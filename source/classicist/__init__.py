@@ -4,7 +4,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-class hybridmethod:
+class hybridmethod(object):
     """The 'hybridmethod' decorator allows a method to be used as both a class method
     and an instance method. The hybridmethod class decorator can wrap methods defined
     in classes using the usual @decorator syntax. Methods defined in classes that are
@@ -56,3 +56,61 @@ class hybridmethod:
             return lambda *args, **kwargs: self.function(owner, *args, **kwargs)
         else:
             return lambda *args, **kwargs: self.function(instance, *args, **kwargs)
+
+
+class classproperty(property):
+    """The classproperty decorator transforms a method into a class-level property. This
+    provides access to the method as if it were a class attribute; this addresses the
+    removal of support for combining the @classmethod and @property decorators to create
+    class properties in Python 3.13, a change which was made due to some complexity in
+    the underlying interpreter implementation."""
+
+    def __init__(self, fget: callable, fset: callable = None, fdel: callable = None):
+        super().__init__(fget, fset, fdel)
+
+    def __get__(self, instance: object, klass: type = None):
+        if klass is None:
+            return self
+        return self.fget(klass)
+
+    def __set__(self, instance: object, value: object):
+        # Note that the __set__ descriptor cannot be used on class methods unless
+        # the class is created with a metaclass that implements this behaviour
+        raise NotImplemented
+
+    def __delete__(self, instance: object):
+        # Note that the __delete__ descriptor cannot be used on class methods unless
+        # the class is created with a metaclass that implements this behaviour
+        raise NotImplemented
+
+    def __getattr__(self, name: str):
+        if name in ATTRIBUTES:
+            return getattr(self.fget, name)
+        else:
+            raise AttributeError(
+                "The classproperty method '%s' does not have an '%s' attribute!" % (
+                    self.fget.__name__, name,
+                )
+            )
+
+    # # For inspectability, provide access to the underlying function's metadata
+    # # including __module__, __name__, __qualname__, __doc__, and __annotations__
+    # @property
+    # def __module__(self):
+    #     return self.fget.__module__
+    # 
+    # @property
+    # def __name__(self):
+    #     return self.fget.__name__
+    # 
+    # @property
+    # def __qualname__(self):
+    #     return self.fget.__qualname__
+    # 
+    # @property
+    # def __doc__(self):
+    #     return self.fget.__doc__
+    # 
+    # @property
+    # def __annotations__(self):
+    #     return self.fget.__annotations__

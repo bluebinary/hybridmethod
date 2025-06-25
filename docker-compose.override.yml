@@ -1,6 +1,6 @@
 x-volumes: &volumes
-  - ./source/hybridmethod:/source/hybridmethod
-  - ./source/hybridmethod:/usr/local/lib/python/site-packages/hybridmethod
+  - ./source/classicist:/source/classicist
+  - ./source/classicist:/usr/local/lib/python/site-packages/classicist
   - ./tests:/tests
   - ./README.md:/README.md
 
@@ -19,7 +19,7 @@ services:
         .env
 
   cli:
-    container_name: hybridmethod-cli
+    container_name: classicist-cli
     build:
       dockerfile: ./Dockerfile
       context: ./
@@ -27,7 +27,7 @@ services:
     environment:
       - PYTHONDONTWRITEBYTECODE=YES
       - SERVICE=cli
-    image: hybridmethod-cli
+    image: classicist-cli
     entrypoint: /bin/bash
     volumes:
       *volumes

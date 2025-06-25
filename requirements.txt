@@ -1,1 +1,1 @@
-# HybridMethod Library: Runtime Dependencies
+# Classicist Library: Runtime Dependencies

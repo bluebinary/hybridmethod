@@ -1,4 +1,4 @@
-# HybridMethod Library: Build & Distribution Dependencies
+# Classicist Library: Build & Distribution Dependencies
 build
 twine
 wheel
