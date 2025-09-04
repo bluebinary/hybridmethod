@@ -9,7 +9,9 @@ The latest version of the HybridMethod library acts as a bridge to the new Class
 makes the `hybridmethod` decorator available for import, although a `DeprecationWarning`
 will be issued.
 
-Please see the new repository for all future updates: [https://github.com/bluebinary/classicist](Classicist).
+Please see the new [Classicist](https://github.com/bluebinary/classicist) repository for all future updates.
+
+---
 
 The `@hybridmethod` decorator provided by the library wraps methods defined in classes
 using the usual `@decorator` syntax. Methods defined in classes that are decorated with
